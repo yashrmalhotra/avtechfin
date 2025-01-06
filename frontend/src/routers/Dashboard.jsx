@@ -1,4 +1,4 @@
-
+import "../App.css"
 import { useEffect, useState, useRef } from "react"
 import Navbar from "../components/Navbar"
 import { FaEdit } from "react-icons/fa";
@@ -83,7 +83,7 @@ const Dashboard = ()=>{
     return (
         <>
             <Navbar logOut={logOut}/>
-            <div className="mx-3 md:container bg-violet-200 md:mx-auto my-5 w-full md:w-1/2 p-5 min-h-[80vh]">
+            <div className="md:container box-border  bg-violet-200 md:mx-auto my-5 w-screen p-2 md:w-1/2 md:p-5 min-h-[80vh]">
                 <h1 className="text-4xl text-center">iTask - Manage your todos at one place</h1>
                 <div className="addTodo flex flex-col gap-4">
                     <h2 className="text-lg font-bold">Add a Todo</h2>

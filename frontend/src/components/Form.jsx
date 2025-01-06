@@ -69,7 +69,7 @@ const Form = ({ endPoint, pageHeading, page, login }) => {
                     </div>
                     <div className='w-[80%] md:w-1/2 relative'>
                         <span className='absolute top-0 left-[-25px] text-2xl text-red-500 ml-2'>*</span>
-                        <input onChange={handleChange} type="password" name='password' placeholder='Email' className='border-2  p-5 text-lg rounded-md w-[98%]' />
+                        <input onChange={handleChange} type="password" name='password' placeholder='Password' className='border-2  p-5 text-lg rounded-md w-[98%]' />
                     </div>
                     <input type="submit" value='Submit' className='border-2 p-5 text-lg rounded-md w-[80%] md:w-1/2 text-center bg-blue-500 hover:bg-blue-300 cursor-pointer' />
                     {err && <div className='text-red-700 text-lg font-bold'>{err}</div>}

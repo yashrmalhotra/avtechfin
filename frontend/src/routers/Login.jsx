@@ -32,7 +32,7 @@ const Login = () => {
     <>
        {isLoading && <Loader/>}
        <Form endPoint="/api/login" pageHeading="Welcome Back" page="login" login={login}/>
-       <div className='md:text-xl flex justify-center bg-red-200 mt-2 '>Does not have an account ? <Link to="/register" className='text-blue-700 underline'>&nbsp;Create Acount</Link> </div>
+       <div className='md:text-xl flex justify-center mt-2 '>Does not have an account ? <Link to="/register" className='text-blue-700 underline'>&nbsp;Create Acount</Link> </div>
     </>
   )
 }
