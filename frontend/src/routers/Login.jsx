@@ -9,15 +9,20 @@ const Login = () => {
   const navigate = useNavigate()
       const checkLoginStatus = async ()=>{
         setIsLoading(true)
-        const response = await fetch("/api/dashboard",{credentials:"include"})
-        const data = await response.json()
-        setIsLoading(false)
-        console.log(data)
-        if(data.msg){
-            login()
-            navigate("/")
-        }else{
-            logOut()
+        try {
+          const response = await fetch("/api/dashboard",{credentials:"include"})
+          const data = await response.json()
+          setIsLoading(false)
+          console.log(data)
+          if(data.msg){
+              login()
+              navigate("/")
+          }else{
+              logOut()
+          }
+        } catch (error) {
+          console.log(error)
+          setIsLoading(false)
         }
     }
     useEffect(()=>{

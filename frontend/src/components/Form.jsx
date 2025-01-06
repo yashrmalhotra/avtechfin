@@ -16,37 +16,42 @@ const Form = ({ endPoint, pageHeading, page, login }) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         setIsLoading(true)
-        const response = await fetch(endPoint, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            credentials: "include",
-            body: JSON.stringify(form)
-        })
-        const data = await response.json()
-        setIsLoading(false)
-        if (Object.keys(data).includes("error")) {
-            const joinAndError = Array.isArray(data.error) ? data.error.join(" and ") : data.error
-            setErr(joinAndError)
-
-        }
-        else if (page === "register") {
-            setMsg(data.msg)
-            setErr("")
-        }
-        else {
-            setErr("")
-            if (page === "login" && data.msg === "Logged in") {
-                login()
-                navigate("/")
-                setErr("")
-
-            } else {
-                setErr(data.error)
+        try {
+            const response = await fetch(endPoint, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                credentials: "include",
+                body: JSON.stringify(form)
+            })
+            const data = await response.json()
+            setIsLoading(false)
+            if (Object.keys(data).includes("error")) {
+                const joinAndError = Array.isArray(data.error) ? data.error.join(" and ") : data.error
+                setErr(joinAndError)
+    
             }
+            else if (page === "register") {
+                setMsg(data.msg)
+                setErr("")
+            }
+            else {
+                setErr("")
+                if (page === "login" && data.msg === "Logged in") {
+                    login()
+                    navigate("/")
+                    setErr("")
+    
+                } else {
+                    setErr(data.error)
+                }
+            }
+    
+        } catch (error) {
+            console.log(error)
+            setIsLoading(false)
         }
-
     }
     return (
         <>
