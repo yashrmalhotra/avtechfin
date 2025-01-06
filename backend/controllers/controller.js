@@ -24,7 +24,7 @@ export async function resgisterUser(req, res) {
        
     }).then(async (result) => {
         const token = generateVerificationToken(result._id)
-        const verificationURL = `http://localhost:5173/verify/${token}`
+        const verificationURL = `https://avtechproject.netlify.app/verify/${token}`
         const info = await transPorter.sendMail({
             from: "YASH <yashrmalhotra11@gmail.com>",
             to: email,
